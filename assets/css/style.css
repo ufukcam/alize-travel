@@ -1510,3 +1510,92 @@ body {
         font-size: 16px;
     }
 }
+
+/* Tour Highlights Styling - Business Design */
+.highlight-card {
+    background: white;
+    border: 1px solid #e9ecef !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    border-color: #d4af37 !important;
+}
+
+.highlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+}
+
+.highlight-header {
+    position: relative;
+}
+
+.highlight-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e9ecef;
+}
+
+.highlight-icon-wrapper i {
+    font-size: 20px;
+}
+
+.highlight-card:hover .highlight-icon-wrapper {
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    border-color: #d4af37;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.highlight-card:hover .highlight-icon-wrapper i {
+    color: white !important;
+}
+
+/* New Tour Sections Styling */
+.ideal-item {
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.ideal-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.option-card {
+    background: white;
+    border: 1px solid #e9ecef !important;
+    transition: all 0.3s ease;
+}
+
+.option-card:hover {
+    border-color: #d4af37 !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.option-card h5 {
+    color: #d4af37 !important;
+}
+
+.feature-card.text-center {
+    text-align: center;
+}
+
+.feature-card.text-center .feature-icon {
+    margin: 0 auto;
+}
