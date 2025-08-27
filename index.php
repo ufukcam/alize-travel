@@ -1,3 +1,30 @@
+<?php
+require_once 'includes/config.php';
+require_once 'includes/database.php';
+require_once 'includes/tour_manager.php';
+
+// Turları getir
+$db = new Database();
+$tourManager = new TourManager($db);
+
+try {
+    $tours = $tourManager->getAllTours();
+    
+    // Kategorilere göre turları grupla
+    $categorizedTours = [];
+    if ($tours) {
+        foreach ($tours as $tour) {
+            $category = $tour['category'];
+            if (!isset($categorizedTours[$category])) {
+                $categorizedTours[$category] = [];
+            }
+            $categorizedTours[$category][] = $tour;
+        }
+    }
+} catch (Exception $e) {
+    $categorizedTours = [];
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -55,7 +82,7 @@
                         <a class="nav-link" href="#a-propos">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tours">Programlar</a>
+                        <a class="nav-link" href="turlar">Programlar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Hizmetlerimiz</a>
@@ -143,11 +170,11 @@
         </div>
         
         <!-- WhatsApp Float Button -->
-                            <div class="whatsapp-float">
-                        <a href="https://wa.me/33769911124" target="_blank" class="whatsapp-btn">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
+        <div class="whatsapp-float">
+            <a href="https://wa.me/33769911124" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -172,16 +199,15 @@
                 </div>
                 <div class="col-lg-6">
                     <h2 class="serif-font display-5 fw-bold mb-4">Hakkımızda</h2>
-                                                    <p class="lead mb-4">
-                                    Fransız yaşam tarzı ve olağanüstü seyahatler konusunda tutkulu olan Dr. Mehmet Kürkçü, sanat tarihi, arkeoloji ve kültür alanlarında uzmanlaşmış, 30+ yıllık deneyime sahip seçkin bir rehberdir. Size Fransa ve Paris'te özel deneyimler sunuyoruz, 4 dilde hizmet veriyoruz: Türkçe, İngilizce, Fransızca ve Almanca.
-                                </p>
-                                
-                                <p class="mb-4">
-                                    Dr. Mehmet Kürkçü, 1989'dan beri turizm sektöründe, 1993'ten itibaren profesyonel rehber olarak çalışmaktadır. Paris-Sorbonne Üniversitesi'nde Sanat Tarihi ve Arkeoloji doktorası yapmış, Akdeniz havzasındaki sayısız arkeolojik alanı yerinde incelemiştir. Bugün tüm Fransa'da geçerli "Guide-Conférencier" belgesine sahip olarak, gezginlere yalnızca bilgiyi değil, kültürün ruhunu da aktarmaktadır.
-                                </p>
-                                
-                                <a href="about-us.html" class="btn btn-primary-custom">Devamı</a>
-                  
+                    <p class="lead mb-4">
+                        Fransız yaşam tarzı ve olağanüstü seyahatler konusunda tutkulu olan Dr. Mehmet Kürkçü, sanat tarihi, arkeoloji ve kültür alanlarında uzmanlaşmış, 30+ yıllık deneyime sahip seçkin bir rehberdir. Size Fransa ve Paris'te özel deneyimler sunuyoruz, 4 dilde hizmet veriyoruz: Türkçe, İngilizce, Fransızca ve Almanca.
+                    </p>
+                    
+                    <p class="mb-4">
+                        Dr. Mehmet Kürkçü, 1989'dan beri turizm sektöründe, 1993'ten itibaren profesyonel rehber olarak çalışmaktadır. Paris-Sorbonne Üniversitesi'nde Sanat Tarihi ve Arkeoloji doktorası yapmış, Akdeniz havzasındaki sayısız arkeolojik alanı yerinde incelemiştir. Bugün tüm Fransa'da geçerli "Guide-Conférencier" belgesine sahip olarak, gezginlere yalnızca bilgiyi değil, kültürün ruhunu da aktarmaktadır.
+                    </p>
+                    
+                    <a href="about-us.html" class="btn btn-primary-custom">Devamı</a>
                 </div>
             </div>
         </div>
@@ -203,7 +229,9 @@
                         <img src="assets/images/tours.jpg" 
                              alt="Visites">
                         <div class="card-body text-center p-4">
-                            <h4 class="serif-font fw-bold">Turlar</h4>
+                            <h4 class="serif-font f w-bold">
+                                <a href="tours.php" class="text-decoration-none text-dark">Turlar</a>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -213,7 +241,9 @@
                         <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
                              alt="Aktiviteler">
                         <div class="card-body text-center p-4">
-                            <h4 class="serif-font fw-bold">Aktiviteler</h4>
+                            <h4 class="serif-font fw-bold">
+                                <a href="tours.php" class="text-decoration-none text-dark">Aktiviteler</a>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -223,7 +253,9 @@
                         <img src="assets/images/private-tours.jpg" 
                              alt="Özel Turlar">
                         <div class="card-body text-center p-4">
-                            <h4 class="serif-font fw-bold">Özel Turlar</h4>
+                            <h4 class="serif-font fw-bold">
+                                <a href="tours.php" class="text-decoration-none text-dark">Özel Turlar</a>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -237,249 +269,217 @@
         </div>
     </section>
 
-    <!-- Featured Tours Section -->
+    <!-- Featured Tours Section - DİNAMİK -->
     <section class="section-padding featured-tours" id="tours">
         <div class="container">
-            <!-- Paris Tours -->
-            <div class="tour-category mb-5">
-                <h2 class="serif-font display-5 fw-bold mb-4 text-center">Paris Turları</h2>
-                
-                <!-- Museums -->
-                <div class="tour-subcategory mb-5">
-                    <h3 class="serif-font h3 fw-bold mb-4">Müzeler</h3>
-                    <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/louvre.jpg" 
-                                     alt="Louvre Müzesi" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Louvre Müzesi</h4>
-                                    <a href="museum-tours/louvre-tour.html" class="tour-link">Daha Fazlası</a>
+            <?php if (!empty($categorizedTours)): ?>
+                <!-- Paris Tours -->
+                <?php if (isset($categorizedTours['museums'])): ?>
+                <div class="tour-category mb-5">
+                    <h2 class="serif-font display-5 fw-bold mb-4 text-center">Paris Turları</h2>
+                    
+                    <!-- Museums -->
+                    <div class="tour-subcategory mb-5">
+                        <h3 class="serif-font h3 fw-bold mb-4">Müzeler</h3>
+                        <div class="row g-4">
+                            <?php foreach ($categorizedTours['museums'] as $tour): ?>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="tour-card">
+                                    <?php
+                                    // Dinamik resim seçimi
+                                    $imagePath = '';
+                                    $defaultImage = 'assets/images/louvre.jpg';
+                                    
+                                    if (!empty($tour['image'])) {
+                                        $dbImagePath = 'assets/images/tours/' . $tour['image'];
+                                        if (file_exists($dbImagePath)) {
+                                            $imagePath = $dbImagePath;
+                                        } else {
+                                            $imagePath = $defaultImage;
+                                        }
+                                    } else {
+                                        $imagePath = $defaultImage;
+                                    }
+                                    ?>
+                                    <img src="<?php echo $imagePath; ?>" 
+                                         alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
+                                    <div class="tour-overlay">
+                                        <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
+                                        <a href="tur/<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/orsay.jpg" 
-                                     alt="Orsay Müzesi" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Orsay Müzesi</h4>
-                                    <a href="museum-tours/orsay-tour.html" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/versailles.jpg" 
-                                     alt="Versailles Merkezi" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Versailles Sarayı</h4>
-                                    <a href="museum-tours/versailles-tour.html" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/orangerie.jpg" 
-                                     alt="Orangerie Müzesi" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Orangerie Müzesi</h4>
-                                    <a href="museum-tours/orangerie-tour.html" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/marmottan.jpg" 
-                                     alt="Marmottan – Monet Müzesi" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Marmottan – Monet Müzesi</h4>
-                                    <a href="museum-tours/marmottan-tour.html" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/sainte-chapelle.jpg" 
-                                     alt="Sainte-Chapelle Müzesi" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Sainte-Chapelle Müzesi</h4>
-                                    <a href="museum-tours/sainte-chapelle-tour.html" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
                 
                 <!-- Thematic Paris -->
-                <div class="tour-subcategory mb-5">
+                <?php if (isset($categorizedTours['thematic'])): ?>
+                <div class="tour-category mb-5">
                     <h3 class="serif-font h3 fw-bold mb-4">Tematik Paris: Farklı Mahalleler</h3>
                     <div class="row g-4">
+                        <?php foreach ($categorizedTours['thematic'] as $tour): ?>
                         <div class="col-lg-3 col-md-6">
                             <div class="tour-card">
-                                <img src="assets/images/montmartre.jpg" 
-                                     alt="Montmartre" class="tour-image">
+                                <?php
+                                // Dinamik resim seçimi
+                                $imagePath = '';
+                                $defaultImage = 'assets/images/montmartre.jpg';
+                                
+                                if (!empty($tour['image'])) {
+                                    $dbImagePath = 'assets/images/tours/' . $tour['image'];
+                                    if (file_exists($dbImagePath)) {
+                                        $imagePath = $dbImagePath;
+                                    } else {
+                                        $imagePath = $defaultImage;
+                                    }
+                                } else {
+                                    $imagePath = $defaultImage;
+                                }
+                                ?>
+                                <img src="<?php echo $imagePath; ?>" 
+                                     alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                 <div class="tour-overlay">
-                                    <h4 class="tour-title">Montmartre</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
+                                    <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
+                                    <a href="tur/<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="col-lg-3 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/culture.jpg" 
-                                     alt="Paris'te Kültür ve Sanat" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Paris'te Kültür ve Sanat</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-3 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/gallery.jpg" 
-                                     alt="Galeriler ve Öyküleri" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Galeriler ve Öyküleri</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-3 col-md-6">
-                            <div class="tour-card">
-                                <img src="assets/images/gastronomy.jpg" 
-                                     alt="Paris'te Gastronomi ve Tadım Turları" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Paris'te Gastronomi ve Tadım Turları</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Paris Surroundings Day Tours -->
-            <div class="tour-category mb-5">
-                <h2 class="serif-font display-5 fw-bold mb-4 text-center">Paris Çevresi Günlük Turlar</h2>
+                <?php endif; ?>
                 
-                <!-- Castles -->
-                <div class="tour-subcategory mb-5">
-                    <h3 class="serif-font h3 fw-bold mb-4">Şatolar</h3>
-                    <div class="row g-4">
-                        <div class="col-lg-4">
-                            <div class="tour-card">
-                                <img src="assets/images/loire.jpg" 
-                                     alt="Loire Vadisi" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Loire Vadisi</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
+                <!-- Paris Surroundings Day Tours -->
+                <?php if (isset($categorizedTours['surroundings'])): ?>
+                <div class="tour-category mb-5">
+                    <h2 class="serif-font display-5 fw-bold mb-4 text-center">Paris Çevresi Günlük Turlar</h2>
+                    
+                    <!-- Castles -->
+                    <div class="tour-subcategory mb-5">
+                        <h3 class="serif-font h3 fw-bold mb-4">Şatolar</h3>
+                        <div class="row g-4">
+                            <?php foreach ($categorizedTours['surroundings'] as $tour): ?>
+                            <div class="col-lg-4">
+                                <div class="tour-card">
+                                    <?php
+                                    // Dinamik resim seçimi
+                                    $imagePath = '';
+                                    $defaultImage = 'assets/images/versailles.jpg';
+                                    
+                                    if (!empty($tour['image'])) {
+                                        $dbImagePath = 'assets/images/tours/' . $tour['image'];
+                                        if (file_exists($dbImagePath)) {
+                                            $imagePath = $dbImagePath;
+                                        } else {
+                                            $imagePath = $defaultImage;
+                                        }
+                                    } else {
+                                        $imagePath = $defaultImage;
+                                    }
+                                    ?>
+                                    <img src="<?php echo $imagePath; ?>" 
+                                         alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
+                                    <div class="tour-overlay">
+                                        <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
+                                        <a href="tur/<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-lg-4">
-                            <div class="tour-card">
-                                <img src="assets/images/chantilly.jpg" 
-                                     alt="Chantilly" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Chantilly</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4">
-                            <div class="tour-card">
-                                <img src="assets/images/fontainebleau.jpg" 
-                                     alt="Fontainebleau" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Fontainebleau</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
                 
-                <!-- Normandy -->
-                <div class="tour-subcategory mb-5">
-                    <h3 class="serif-font h3 fw-bold mb-4">Normandiya</h3>
+                <!-- France Tours -->
+                <?php if (isset($categorizedTours['france'])): ?>
+                <div class="tour-category">
+                    <h2 class="serif-font display-5 fw-bold mb-4 text-center">Fransa Turları</h2>
                     <div class="row g-4">
-                        <div class="col-lg-6">
+                        <?php foreach ($categorizedTours['france'] as $tour): ?>
+                        <div class="col-lg-3">
                             <div class="tour-card">
-                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                                     alt="Honfleur" class="tour-image">
+                                <?php
+                                // Dinamik resim seçimi
+                                $imagePath = '';
+                                $defaultImage = 'assets/images/provence.jpg';
+                                
+                                if (!empty($tour['image'])) {
+                                    $dbImagePath = 'assets/images/tours/' . $tour['image'];
+                                    if (file_exists($dbImagePath)) {
+                                        $imagePath = $dbImagePath;
+                                    } else {
+                                        $imagePath = $defaultImage;
+                                    }
+                                } else {
+                                    $imagePath = $defaultImage;
+                                }
+                                ?>
+                                <img src="<?php echo $imagePath; ?>" 
+                                     alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                 <div class="tour-overlay">
-                                    <h4 class="tour-title">Honfleur</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
+                                    <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
+                                    <a href="tur/<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="col-lg-6">
-                            <div class="tour-card">
-                                <img src="assets/images/deauville.jpg" 
-                                     alt="Deauville – Trouville" class="tour-image">
-                                <div class="tour-overlay">
-                                    <h4 class="tour-title">Deauville – Trouville</h4>
-                                    <a href="#" class="tour-link">Daha Fazlası</a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
+                
+            <?php else: ?>
+                <!-- Turlar yoksa statik içerik göster -->
+                <div class="tour-category mb-5">
+                    <h2 class="serif-font display-5 fw-bold mb-4 text-center">Paris Turları</h2>
+                    
+                    <!-- Museums -->
+                    <div class="tour-subcategory mb-5">
+                        <h3 class="serif-font h3 fw-bold mb-4">Müzeler</h3>
+                        <div class="row g-4">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="tour-card">
+                                    <img src="assets/images/louvre.jpg" 
+                                         alt="Louvre Müzesi" class="tour-image">
+                                    <div class="tour-overlay">
+                                        <h4 class="tour-title">Louvre Müzesi</h4>
+                                        <a href="museum-tours/louvre-tour.html" class="tour-link">Daha Fazlası</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-6">
+                                <div class="tour-card">
+                                    <img src="assets/images/orsay.jpg" 
+                                         alt="Orsay Müzesi" class="tour-image">
+                                    <div class="tour-overlay">
+                                        <h4 class="tour-title">Orsay Müzesi</h4>
+                                        <a href="museum-tours/orsay-tour.html" class="tour-link">Daha Fazlası</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-6">
+                                <div class="tour-card">
+                                    <img src="assets/images/versailles.jpg" 
+                                         alt="Versailles Merkezi" class="tour-image">
+                                    <div class="tour-overlay">
+                                        <h4 class="tour-title">Versailles Sarayı</h4>
+                                        <a href="museum-tours/versailles-tour.html" class="tour-link">Daha Fazlası</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- France Tours -->
-            <div class="tour-category">
-                <h2 class="serif-font display-5 fw-bold mb-4 text-center">Fransa Turları</h2>
-                <div class="row g-4">
-                    <div class="col-lg-4">
-                        <div class="tour-card">
-                            <img src="assets/images/provence.jpg" 
-                                 alt="Provence" class="tour-image">
-                            <div class="tour-overlay">
-                                <h4 class="tour-title">Provence</h4>
-                                <a href="#" class="tour-link">Daha Fazlası</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4">
-                        <div class="tour-card">
-                            <img src="assets/images/alsace.jpg" 
-                                 alt="Alsace" class="tour-image">
-                            <div class="tour-overlay">
-                                <h4 class="tour-title">Alsace</h4>
-                                <a href="#" class="tour-link">Daha Fazlası</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4">
-                        <div class="tour-card">
-                            <img src="assets/images/normandiya.jpg" 
-                                 alt="Normandiya" class="tour-image">
-                            <div class="tour-overlay">
-                                <h4 class="tour-title">Normandiya</h4>
-                                <a href="#" class="tour-link">Daha Fazlası</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
     </section>
 
+    <!-- Diğer bölümler aynı kalacak -->
     <!-- Why Personalized Experience Section -->
     <section class="section-padding personalized-experience">
         <div class="container">
@@ -528,8 +528,8 @@
         </div>
     </section>
 
-    <!-- How Your Journey Takes Shape Section -->
-    <section class="section-padding journey-shape">
+       <!-- How Your Journey Takes Shape Section -->
+       <section class="section-padding journey-shape">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -655,29 +655,6 @@
         </div>
     </section>
 
-    <!-- Next Escape Preview Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="text-center mb-5">
-                            <h2 class="serif-font display-5 fw-bold mb-4">Bir sonraki kaçamağınızın ön tadı</h2>
-            <p class="lead">
-                Alize Travel'i seçmek, özel tasarım, lüks ve özel bir macera seçmek ve Fransa'nın gizli hazinelerini derinlemesine keşfetmektir.
-            </p>
-            </div>
-            
-            <div class="image-collage">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Provence Landscape">
-                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Wine Cellar">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Charming Building">
-                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Wine Tasting">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Local Products">
-                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Artisanal Products">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Home Fragrances">
-                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Happy Couple">
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer py-5">
         <div class="container">
@@ -690,7 +667,7 @@
                     <p class="text-white-50">
                         Alize Travel ile Fransa'yı farklı bir şekilde keşfedin. Paris, Lyon, Nice, Cannes, Versailles ve diğer ikonik yerlerde özel deneyimler.
                     </p>
-                    <a href="#contact" class="btn btn-dark-custom">İLETİŞİME GEÇİN</a>
+                    <a href="contact-us.html" class="btn btn-dark-custom">İLETİŞİME GEÇİN</a>
                 </div>
                 
                 <div class="col-lg-4 mb-4 mb-lg-0">
@@ -698,23 +675,29 @@
                     <p class="text-white-50 mb-2">
                         <i class="fas fa-phone me-2"></i>+33 7 69 91 11 24
                     </p>
-                    <p class="text-white-50 mb-2">
-                        <i class="fas fa-envelope me-2"></i>info@alizetravel.com
-                    </p>
-                    <p class="text-white-50">
-                        <i class="fas fa-map-marker-alt me-2"></i>9 Rue du Lieutenant d'Estienne d'Orves, 94700 Maisons Alfort, France
-                    </p>
-                </div>
-                
-                <div class="col-lg-4">
-                    <h5 class="text-white mb-3">Bizi Takip Edin</h5>
-                    <div class="mb-3">
-                        <a href="#" class="social-icon me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <p class="col-lg-4 mb-4 mb-lg-0">
+                        <h5 class="text-white mb-3">İletişim</h5>
+                        <p class="text-white-50 mb-2">
+                            <i class="fas fa-phone me-2"></i>+33 7 69 91 11 24
+                        </p>
+                        <p class="text-white-50 mb-2">
+                            <i class="fas fa-envelope me-2"></i>info@alizetravel.com
+                        </p>
+                        <p class="text-white-50">
+                            <i class="fas fa-map-marker-alt me-2"></i>9 Rue du Lieutenant d'Estienne d'Orves, 94700 Maisons Alfort, France
+                        </p>
                     </div>
-                    <p class="text-white-50 small">
-                        Türkçe, İngilizce, Fransızca ve Almanca dillerinde hizmet
-                    </p>
+                    
+                    <div class="col-lg-4">
+                        <h5 class="text-white mb-3">Bizi Takip Edin</h5>
+                        <div class="mb-3">
+                            <a href="#" class="social-icon me-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                        <p class="text-white-50 small">
+                            Türkçe, İngilizce, Fransızca ve Almanca dillerinde hizmet
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -735,26 +718,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Smooth Scrolling -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-    
-    <!-- Hero Slider Functionality -->
     <!-- WhatsApp Floating Button -->
     <div class="whatsapp-float">
         <a href="https://wa.me/33769911124?text=Merhaba! Alize Travel hakkında bilgi almak istiyorum." 
@@ -767,6 +730,10 @@
         </a>
     </div>
 
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Hero Slider Functionality -->
     <script>
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.slide');

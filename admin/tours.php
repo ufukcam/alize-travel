@@ -1,5 +1,6 @@
 <?php
 require_once '../includes/config.php';
+require_once '../includes/database.php';
 require_once '../includes/tour_manager.php';
 
 // Giriş kontrolü
@@ -109,14 +110,16 @@ $categories = [
     'museums' => 'Müzeler',
     'thematic' => 'Tematik Paris',
     'surroundings' => 'Paris Çevresi',
-    'france' => 'Fransa Turları'
+    'france' => 'Fransa Turları',
+    'normandiya' => 'Normandiya Turları'
 ];
 
 $subcategories = [
     'museums' => 'Müzeler',
     'thematic_paris' => 'Tematik Paris: Farklı Mahalleler',
     'day_tours' => 'Günlük Turlar',
-    'france_tours' => 'Fransa Geneli'
+    'france_tours' => 'Fransa Geneli',
+    'normandiya_tours' => 'Normandiya Turları'
 ];
 
 $difficulties = ['Kolay', 'Orta', 'Zor'];

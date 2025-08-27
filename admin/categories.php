@@ -37,6 +37,12 @@ $categories = [
         'description' => 'Provence, Loire Vadisi gibi uzun turlar',
         'icon' => 'fas fa-plane',
         'color' => 'info'
+    ],
+    'normandiya' => [
+        'name' => 'Normandiya Turları',
+        'description' => 'Normandiya\'da günlük turlar',
+        'icon' => 'fas fa-car',
+        'color' => 'warning'
     ]
 ];
 
@@ -44,7 +50,8 @@ $subcategories = [
     'museums' => 'Müzeler',
     'thematic_paris' => 'Tematik Paris: Farklı Mahalleler',
     'day_tours' => 'Günlük Turlar',
-    'france_tours' => 'Fransa Geneli'
+    'france_tours' => 'Fransa Geneli',
+    'normandiya_tours' => 'Normandiya Turları'
 ];
 
 // Her kategorideki tur sayısını hesapla

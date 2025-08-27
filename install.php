@@ -113,7 +113,7 @@ try {
         ]
     ];
     
-    $stmt = $pdo->prepare("INSERT INTO tours (title, subtitle, description, category, subcategory, image, price, duration, difficulty, group_size, highlights, included_services, tour_options, ideal_for, guide_name, guide_expertise, rating, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO tours (title, subtitle, description, category, subcategory, image, price, duration, difficulty, group_size, highlights, included_services, tour_options, ideal_for, guide_name, guide_expertise, rating, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
     foreach ($sampleTours as $tour) {
         $stmt->execute([
