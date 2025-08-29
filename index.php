@@ -54,8 +54,8 @@ try {
                     <span><i class="fas fa-envelope me-2"></i>info@alizetravel.com</span>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/alizetravelparis" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/33769911124?text=Merhaba!%20Alize%20Travel%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="social-icon"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@ try {
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <div>Alize Travel</div>
                 <div class="subtitle">FRANSA & PARİS</div>
             </a>
@@ -76,19 +76,16 @@ try {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#accueil">Ana Sayfa</a>
+                        <a class="nav-link" href="index.php">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#a-propos">Hakkımızda</a>
+                        <a class="nav-link" href="about-us.html">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="turlar">Programlar</a>
+                        <a class="nav-link" href="tours.php">Programlar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Hizmetlerimiz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#avis">Müşteri Yorumları</a>
+                        <a class="nav-link" href="services.html">Hizmetlerimiz</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact-us.html">İletişim</a>
@@ -188,12 +185,9 @@ try {
                         
                         <!-- Social Media Icons -->
                         <div class="social-media-icons-about">
-                            <a href="#" class="social-icon-circle">
+                            <a href="https://www.instagram.com/dardanelli" class="social-icon-circle">
                                 <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-icon-circle">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
+                            </a> 
                         </div>
                     </div>
                 </div>
@@ -305,7 +299,7 @@ try {
                                          alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                     <div class="tour-overlay">
                                         <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
-                                        <a href="tur/<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                        <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
                                     </div>
                                 </div>
                             </div>
@@ -343,7 +337,7 @@ try {
                                      alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                 <div class="tour-overlay">
                                     <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
-                                    <a href="tur/<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                    <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
                                 </div>
                             </div>
                         </div>
@@ -384,7 +378,7 @@ try {
                                          alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                     <div class="tour-overlay">
                                         <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
-                                        <a href="tur/<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                        <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
                                     </div>
                                 </div>
                             </div>
@@ -422,7 +416,7 @@ try {
                                      alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                 <div class="tour-overlay">
                                     <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
-                                    <a href="tur/<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                    <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
                                 </div>
                             </div>
                         </div>
@@ -628,7 +622,7 @@ try {
     <section class="section-padding testimonials-section" id="avis">
         <div class="container text-center">
             <h2 class="serif-font display-5 fw-bold mb-4">Müşteri Yorumları</h2>
-            <div class="star-rating">
+            <div class="star-rating mb-4">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -636,21 +630,84 @@ try {
                 <i class="fas fa-star"></i>
             </div>
             
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <blockquote class="blockquote">
-                        <p class="lead mb-3">
-                            "Astrid Caternet ist eine erstklassige Reiseleiterin mit umfassendem Wissen und großer Kompetenz. Die Eindrücke von Marseille während unseres kurzen Treffens waren großartig. Sie ist freundlich, hilfsbereit und hat ein enormes Wissen. Das wird unvergesslich!"
-                        </p>
-                        <footer class="blockquote-footer fw-bold">Bernd - Allemagne</footer>
-                    </blockquote>
+            <!-- Testimonials Carousel -->
+            <div class="testimonials-carousel">
+                <div class="testimonials-wrapper" id="testimonialsWrapper">
+                    <?php
+                    // Testimonials verilerini getir
+                    try {
+                        $testimonialsQuery = "SELECT * FROM testimonials WHERE is_active = 1 ORDER BY created_at DESC";
+                        $testimonialsResult = $db->getConnection()->query($testimonialsQuery);
+                        
+                        if ($testimonialsResult && $testimonialsResult->rowCount() > 0) {
+                            while ($testimonial = $testimonialsResult->fetch(PDO::FETCH_ASSOC)) {
+                                $initials = strtoupper(substr($testimonial['first_name'], 0, 1) . substr($testimonial['last_name'], 0, 1));
+                                ?>
+                                <div class="testimonial-item">
+                                    <div class="testimonial-content">
+                                        <blockquote class="blockquote">
+                                            <p class="lead mb-3">
+                                                "<?php echo htmlspecialchars($testimonial['comment']); ?>"
+                                            </p>
+                                            <footer class="blockquote-footer fw-bold">
+                                                <?php echo htmlspecialchars($testimonial['first_name'] . ' ' . $testimonial['last_name'][0] . '. - ' . $testimonial['country']); ?>
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        } else {
+                            // Varsayılan testimonial göster
+                            ?>
+                            <div class="testimonial-item">
+                                <div class="testimonial-content">
+                                    <div class="testimonial-avatar">
+                                        <span class="avatar-initials">BM</span>
+                                    </div>
+                                    <blockquote class="blockquote">
+                                        <p class="lead mb-3">
+                                            "Astrid Caternet ist eine erstklassige Reiseleiterin mit umfassendem Wissen und großer Kompetenz. Die Eindrücke von Marseille während unseres kurzen Treffens waren großartig. Sie ist freundlich, hilfsbereit und hat ein enormes Wissen. Das wird unvergesslich!"
+                                        </p>
+                                        <footer class="blockquote-footer fw-bold">Bernd M. - Almanya</footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    } catch (Exception $e) {
+                        // Hata durumunda varsayılan testimonial göster
+                        ?>
+                        <div class="testimonial-item">
+                            <div class="testimonial-content">
+                                <div class="testimonial-avatar">
+                                    <span class="avatar-initials">BM</span>
+                                </div>
+                                <blockquote class="blockquote">
+                                    <p class="lead mb-3">
+                                        "Astrid Caternet ist eine erstklassige Reiseleiterin mit umfassendem Wissen und großer Kompetenz. Die Eindrücke von Marseille während unseres kurzen Treffens waren großartig. Sie ist freundlich, hilfsbereit und hat ein enormes Wissen. Das wird unvergesslich!"
+                                    </p>
+                                    <footer class="blockquote-footer fw-bold">Bernd M. - Almanya</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
-            </div>
-            
-            <div class="mt-4">
-                <span class="badge bg-dark rounded-circle mx-1" style="width: 12px; height: 12px;"></span>
-                <span class="badge bg-secondary rounded-circle mx-1" style="width: 12px; height: 12px;"></span>
-                <span class="badge bg-secondary rounded-circle mx-1" style="width: 12px; height: 12px;"></span>
+                
+                <!-- Navigation Arrows -->
+                <button class="testimonial-nav prev" onclick="changeTestimonial(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonial-nav next" onclick="changeTestimonial(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Pagination Dots -->
+                <div class="testimonial-dots" id="testimonialDots">
+                    <!-- JavaScript ile doldurulacak -->
+                </div>
             </div>
         </div>
     </section>
@@ -692,7 +749,7 @@ try {
                         <h5 class="text-white mb-3">Bizi Takip Edin</h5>
                         <div class="mb-3">
                             <a href="#" class="social-icon me-3"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://wa.me/33769911124?text=Merhaba!%20Alize%20Travel%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="social-icon"><i class="fab fa-whatsapp"></i></a>
                         </div>
                         <p class="text-white-50 small">
                             Türkçe, İngilizce, Fransızca ve Almanca dillerinde hizmet
@@ -711,8 +768,8 @@ try {
                     <small class="text-muted">© Copyright 2024 Alize Travel. Designed by kodix.net | Şartlar ve Koşullar | Gizlilik Politikası</small>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/alizetravelparis" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/33769911124?text=Merhaba!%20Alize%20Travel%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="social-icon"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -830,6 +887,106 @@ try {
                 }
             }
         }
+        
+        // Testimonials Carousel Functionality
+        let currentTestimonialIndex = 0;
+        const testimonialItems = document.querySelectorAll('.testimonial-item');
+        const testimonialDots = document.getElementById('testimonialDots');
+        let testimonialInterval;
+        
+        // Initialize testimonials carousel
+        function initTestimonialsCarousel() {
+            if (testimonialItems.length > 1) {
+                createTestimonialDots();
+                showTestimonial(currentTestimonialIndex);
+                startTestimonialAutoPlay();
+            }
+        }
+        
+        // Create pagination dots
+        function createTestimonialDots() {
+            testimonialDots.innerHTML = '';
+            for (let i = 0; i < testimonialItems.length; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'testimonial-dot';
+                dot.onclick = () => currentTestimonial(i);
+                testimonialDots.appendChild(dot);
+            }
+        }
+        
+        // Show specific testimonial
+        function showTestimonial(index) {
+            // Hide all testimonials
+            testimonialItems.forEach(item => item.style.display = 'none');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current testimonial
+            if (testimonialItems[index]) {
+                testimonialItems[index].style.display = 'block';
+                if (dots[index]) {
+                    dots[index].classList.add('active');
+                }
+            }
+        }
+        
+        // Change testimonial
+        function changeTestimonial(direction) {
+            currentTestimonialIndex += direction;
+            
+            // Loop around
+            if (currentTestimonialIndex >= testimonialItems.length) {
+                currentTestimonialIndex = 0;
+            } else if (currentTestimonialIndex < 0) {
+                currentTestimonialIndex = testimonialItems.length - 1;
+            }
+            
+            showTestimonial(currentTestimonialIndex);
+            resetTestimonialAutoPlay();
+        }
+        
+        // Go to specific testimonial
+        function currentTestimonial(index) {
+            currentTestimonialIndex = index;
+            showTestimonial(currentTestimonialIndex);
+            resetTestimonialAutoPlay();
+        }
+        
+        // Auto-play functionality for testimonials
+        function startTestimonialAutoPlay() {
+            if (testimonialItems.length > 1) {
+                testimonialInterval = setInterval(() => {
+                    changeTestimonial(1);
+                }, 4000); // Change testimonial every 4 seconds
+            }
+        }
+        
+        function resetTestimonialAutoPlay() {
+            if (testimonialInterval) {
+                clearInterval(testimonialInterval);
+                startTestimonialAutoPlay();
+            }
+        }
+        
+        // Pause auto-play on hover for testimonials
+        const testimonialsCarousel = document.querySelector('.testimonials-carousel');
+        if (testimonialsCarousel) {
+            testimonialsCarousel.addEventListener('mouseenter', () => {
+                if (testimonialInterval) {
+                    clearInterval(testimonialInterval);
+                }
+            });
+            
+            testimonialsCarousel.addEventListener('mouseleave', () => {
+                startTestimonialAutoPlay();
+            });
+        }
+        
+        // Initialize testimonials when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initSlider();
+            initTestimonialsCarousel();
+        });
     </script>
 </body>
 </html>

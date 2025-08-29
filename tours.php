@@ -117,8 +117,8 @@ $categoryNames = [
                     <span><i class="fas fa-envelope me-2"></i>info@alizetravel.com</span>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/alizetravelparis" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/33769911124?text=Merhaba!%20Alize%20Travel%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="social-icon"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -139,19 +139,16 @@ $categoryNames = [
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#accueil">Ana Sayfa</a>
+                        <a class="nav-link" href="index.php">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#a-propos">Hakkımızda</a>
+                        <a class="nav-link" href="about-us.html">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tours.php">Programlar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Hizmetlerimiz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#avis">Müşteri Yorumları</a>
+                        <a class="nav-link" href="services.html">Hizmetlerimiz</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact-us.html">İletişim</a>
@@ -318,7 +315,7 @@ $categoryNames = [
                     <h5 class="text-white mb-3">Bizi Takip Edin</h5>
                     <div class="mb-3">
                         <a href="#" class="social-icon me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/33769911124?text=Merhaba!%20Alize%20Travel%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="social-icon"><i class="fab fa-whatsapp"></i></a>
                     </div>
                     <p class="text-white-50 small">
                         Türkçe, İngilizce, Fransızca ve Almanca dillerinde hizmet
@@ -336,8 +333,8 @@ $categoryNames = [
                     <small class="text-muted">© Copyright 2024 Alize Travel. Designed by kodix.net | Şartlar ve Koşullar | Gizlilik Politikası</small>
                 </div>
                 <div class="col-md-6 text-end">
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/alizetravelparis" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/33769911124?text=Merhaba!%20Alize%20Travel%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="social-icon"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
