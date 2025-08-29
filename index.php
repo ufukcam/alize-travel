@@ -8,7 +8,7 @@ $db = new Database();
 $tourManager = new TourManager($db);
 
 try {
-    $tours = $tourManager->getAllTours();
+    $tours = $tourManager->getAllToursOrdered();
     
     // Kategorilere göre turları grupla
     $categorizedTours = [];
@@ -177,6 +177,88 @@ try {
     <!-- About Section -->
     <section class="section-padding" id="a-propos">
         <div class="container">
+            <!-- Paris ve Fransa VIP Geziler Section -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="vip-intro-card p-5 rounded-3 shadow-sm bg-light">
+                        <div class="text-center mb-4">
+                            <div class="vip-badge mb-3">
+                                <span class="badge bg-primary px-3 py-2 fs-6">VIP Deneyim</span>
+                            </div>
+                            <h2 class="serif-font display-6 fw-bold mb-4 text-primary">
+                                Paris ve Fransa VIP Geziler
+                            </h2>
+                            <p class="h5 text-muted mb-0">Özel Rehber ile Kişiye Özgü Deneyimler</p>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="vip-feature d-flex align-items-start">
+                                    <div class="feature-icon me-3">
+                                        <i class="fas fa-eye text-gold fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold mb-2">Deneyimli Perspektif</h5>
+                                        <p class="text-muted mb-0">
+                                            Dünyanın farklı ülkelerinde rehberliğini yaptığım sayısız gezide çoğu zaman ayrıntılara gereken özenin gösterilmediğini, hizmetlerin gerçek anlamda kişiselleştirilmediğini gözlemledim.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="vip-feature d-flex align-items-start">
+                                    <div class="feature-icon me-3">
+                                        <i class="fas fa-star text-gold fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold mb-2">Özel Tasarım</h5>
+                                        <p class="text-muted mb-0">
+                                            İşte bu yüzden Paris ve Fransa VIP Geziler, Özel Rehber'i tasarladık. Amacımız; Paris ve Fransa'da size özel, titizlikle hazırlanmış ve gizliliğe önem veren bir hizmet sunmak.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="vip-feature d-flex align-items-start">
+                                    <div class="feature-icon me-3">
+                                        <i class="fas fa-gem text-gold fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold mb-2">Otantik Deneyimler</h5>
+                                        <p class="text-muted mb-0">
+                                            Tüm bilgi ve deneyimimizi, size otantik ve ayrıcalıklı anlar yaşatmak için kullanıyoruz. Göreceğiniz bölgeler ve mekânların gizli kalmış güzelliklerini sunuyoruz.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="vip-feature d-flex align-items-start">
+                                    <div class="feature-icon me-3">
+                                        <i class="fas fa-crown text-gold fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold mb-2">Lüks & Zarafet</h5>
+                                        <p class="text-muted mb-0">
+                                            Her ziyaretin eşsiz ve unutulmaz bir deneyime dönüşmesi için çalışıyoruz. Lüks ve zarafeti bir araya getiren, tamamen kişiselleştirilmiş yolculuklar.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4 pt-3 border-top">
+                            <p class="h6 text-primary fw-bold mb-0">
+                                <i class="fas fa-heart me-2"></i>
+                                Sizi, lüks ve zarafeti bir araya getiren, tamamen kişiselleştirilmiş bir yolculuğa davet ediyoruz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="about-profile-image">
@@ -353,7 +435,7 @@ try {
                     
                     <!-- Castles -->
                     <div class="tour-subcategory mb-5">
-                        <h3 class="serif-font h3 fw-bold mb-4">Şatolar</h3>
+                       <!-- <h3 class="serif-font h3 fw-bold mb-4">Şatolar</h3> -->
                         <div class="row g-4">
                             <?php foreach ($categorizedTours['surroundings'] as $tour): ?>
                             <div class="col-lg-4">
@@ -583,40 +665,6 @@ try {
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="serif-font display-5 fw-bold mb-4">Paris ve Fransa VIP Geziler, Özel Rehber ile Kişiye Özgü Deneyimler</h2>
-                    
-                    <div class="mb-4">
-                        <p class="lead mb-4">
-                            Dünyanın farklı ülkelerinde rehberliğini yaptığım sayısız gezide çoğu zaman ayrıntılara gereken özenin gösterilmediğini, hizmetlerin gerçek anlamda kişiselleştirilmediğini gözlemledim.
-                        </p>
-                        
-                        <p class="mb-4">
-                            İşte bu yüzden Paris ve Fransa VIP Geziler, Özel Rehber'i tasarladık. Amacımız; Paris ve Fransa'da size özel, titizlikle hazırlanmış ve gizliliğe önem veren bir hizmet sunmak. Her ziyaretin eşsiz ve unutulmaz bir deneyime dönüşmesi için çalışıyoruz.
-                        </p>
-                        
-                        <p class="mb-4">
-                            Tüm bilgi ve deneyimimizi, size otantik ve ayrıcalıklı anlar yaşatmak için kullanıyoruz. Bunu yaparken de göreceğiniz bölgeler ve mekânların gizli kalmış güzelliklerini de sunuyoruz.
-                        </p>
-                        
-                        <p class="h5 text-gold fw-bold">
-                            Sizi, lüks ve zarafeti bir araya getiren, tamamen kişiselleştirilmiş bir yolculuğa davet ediyoruz.
-                        </p>
-                    </div>
-                    
-                </div>
-                
-                <div class="col-lg-6">
-                    <img src="assets/images/paris-vip.jpg" 
-                         alt="Château en Provence" class="img-fluid rounded-3">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Testimonials Section -->
     <section class="section-padding testimonials-section" id="avis">

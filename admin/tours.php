@@ -103,7 +103,7 @@ if ($action === 'edit' && isset($_GET['id'])) {
 }
 
 // Tüm turları getir
-$tours = $tourManager->getAllTours();
+$tours = $tourManager->getAllToursOrdered();
 
 // Kategoriler
 $categories = [

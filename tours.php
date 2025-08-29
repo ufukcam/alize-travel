@@ -8,7 +8,7 @@ $db = new Database();
 $tourManager = new TourManager($db);
 
 try {
-    $tours = $tourManager->getAllTours();
+    $tours = $tourManager->getAllToursOrdered();
 } catch (Exception $e) {
     $tours = [];
     $error = 'Turlar yüklenirken bir hata oluştu.';

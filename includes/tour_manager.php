@@ -15,6 +15,25 @@ class TourManager {
             "SELECT * FROM tours ORDER BY category, subcategory, sort_order ASC"
         );
     }
+
+     // Tüm turları sort_order'a göre sıralı getir
+     public function getAllToursOrdered() {
+        try {
+            $query = "SELECT * FROM tours WHERE is_active = 1 ORDER BY sort_order ASC, title ASC";
+            $result = $this->db->getConnection()->query($query);
+            
+            if ($result) {
+                $tours = [];
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    $tours[] = $row;
+                }
+                return $tours;
+            }
+            return [];
+        } catch (Exception $e) {
+            throw new Exception("Turlar getirilirken hata: " . $e->getMessage());
+        }
+    }
     
     // Kategoriye göre turları getir
     public function getToursByCategory($category) {
