@@ -537,7 +537,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
                         <a href="https://wa.me/33769911124?text=Merhaba!%20Alize%20Travel%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="social-icon"><i class="fab fa-whatsapp"></i></a>
                     </div>
                     <p class="text-white-50 small">
-                        Türkçe, İngilizce, Fransızca ve Almanca dillerinde hizmet
+                        Türkçe, İngilizce, Fransızca dillerinde hizmet
                     </p>
                 </div>
             </div>

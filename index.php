@@ -188,70 +188,25 @@ try {
                             <h2 class="serif-font display-6 fw-bold mb-4 text-primary">
                                 Paris ve Fransa VIP Geziler
                             </h2>
-                            <p class="h5 text-muted mb-0">Özel Rehber ile Kişiye Özgü Deneyimler</p>
+                            <p class="h5 text-muted mb-4">Özel Rehber ile Kişiye Özgü Deneyimler</p>
                         </div>
                         
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="vip-feature d-flex align-items-start">
-                                    <div class="feature-icon me-3">
-                                        <i class="fas fa-eye text-gold fs-4"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="fw-bold mb-2">Deneyimli Perspektif</h5>
-                                        <p class="text-muted mb-0">
-                                            Dünyanın farklı ülkelerinde rehberliğini yaptığım sayısız gezide çoğu zaman ayrıntılara gereken özenin gösterilmediğini, hizmetlerin gerçek anlamda kişiselleştirilmediğini gözlemledim.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="vip-content">
+                            <p class="lead mb-4">
+                                Dünyanın farklı ülkelerinde rehberliğini yaptığım sayısız gezide çoğu zaman ayrıntılara gereken özenin gösterilmediğini, hizmetlerin gerçek anlamda kişiselleştirilmediğini gözlemledim. İşte bu yüzden Paris ve Fransa VIP Geziler, Özel Rehber'i tasarladık.
+                            </p>
                             
-                            <div class="col-md-6">
-                                <div class="vip-feature d-flex align-items-start">
-                                    <div class="feature-icon me-3">
-                                        <i class="fas fa-star text-gold fs-4"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="fw-bold mb-2">Özel Tasarım</h5>
-                                        <p class="text-muted mb-0">
-                                            İşte bu yüzden Paris ve Fransa VIP Geziler, Özel Rehber'i tasarladık. Amacımız; Paris ve Fransa'da size özel, titizlikle hazırlanmış ve gizliliğe önem veren bir hizmet sunmak.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <p class="mb-4">
+                                Amacımız; Paris ve Fransa'da size özel, titizlikle hazırlanmış ve gizliliğe önem veren bir hizmet sunmak. Tüm bilgi ve deneyimimizi, size otantik ve ayrıcalıklı anlar yaşatmak için kullanıyoruz. Göreceğiniz bölgeler ve mekânların gizli kalmış güzelliklerini sunuyoruz.
+                            </p>
                             
-                            <div class="col-md-6">
-                                <div class="vip-feature d-flex align-items-start">
-                                    <div class="feature-icon me-3">
-                                        <i class="fas fa-gem text-gold fs-4"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="fw-bold mb-2">Otantik Deneyimler</h5>
-                                        <p class="text-muted mb-0">
-                                            Tüm bilgi ve deneyimimizi, size otantik ve ayrıcalıklı anlar yaşatmak için kullanıyoruz. Göreceğiniz bölgeler ve mekânların gizli kalmış güzelliklerini sunuyoruz.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <div class="vip-feature d-flex align-items-start">
-                                    <div class="feature-icon me-3">
-                                        <i class="fas fa-crown text-gold fs-4"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="fw-bold mb-2">Lüks & Zarafet</h5>
-                                        <p class="text-muted mb-0">
-                                            Her ziyaretin eşsiz ve unutulmaz bir deneyime dönüşmesi için çalışıyoruz. Lüks ve zarafeti bir araya getiren, tamamen kişiselleştirilmiş yolculuklar.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <p class="mb-4">
+                                Her ziyaretin eşsiz ve unutulmaz bir deneyime dönüşmesi için çalışıyoruz. Lüks ve zarafeti bir araya getiren, tamamen kişiselleştirilmiş yolculuklar sunuyoruz. Sizi, bu özel deneyime davet ediyoruz.
+                            </p>
                         </div>
                         
                         <div class="text-center mt-4 pt-3 border-top">
                             <p class="h6 text-primary fw-bold mb-0">
-                                <i class="fas fa-heart me-2"></i>
                                 Sizi, lüks ve zarafeti bir araya getiren, tamamen kişiselleştirilmiş bir yolculuğa davet ediyoruz.
                             </p>
                         </div>
@@ -397,7 +352,7 @@ try {
                     <h3 class="serif-font h3 fw-bold mb-4">Tematik Paris: Farklı Mahalleler</h3>
                     <div class="row g-4">
                         <?php foreach ($categorizedTours['thematic'] as $tour): ?>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-4 col-md-6">
                             <div class="tour-card">
                                 <?php
                                 // Dinamik resim seçimi
@@ -800,7 +755,7 @@ try {
                             <a href="https://wa.me/33769911124?text=Merhaba!%20Alize%20Travel%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="social-icon"><i class="fab fa-whatsapp"></i></a>
                         </div>
                         <p class="text-white-50 small">
-                            Türkçe, İngilizce, Fransızca ve Almanca dillerinde hizmet
+                            Türkçe, İngilizce, Fransızca dillerinde hizmet
                         </p>
                     </div>
                 </div>
