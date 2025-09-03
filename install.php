@@ -153,7 +153,7 @@ try {
     echo "✅ Tour details tablosu oluşturuldu<br>";
     
     echo "<br>🎉 Kurulum tamamlandı!<br>";
-    echo "<a href='admin/index.php' class='btn btn-primary'>Admin Paneline Git</a><br>";
+    echo "<a href='admin//' class='btn btn-primary'>Admin Paneline Git</a><br>";
     echo "<a href='index.html' class='btn btn-secondary'>Ana Sayfaya Git</a>";
     
 } catch (PDOException $e) {

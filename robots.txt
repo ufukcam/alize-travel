@@ -1,0 +1,76 @@
+# Alize Travel - Robots.txt
+# SEO ve Arama Motoru Optimizasyonu
+
+User-agent: *
+Allow: /
+
+# Ana sayfalar
+Allow: //
+Allow: /about-us.html
+Allow: /tours.php
+Allow: /services.html
+Allow: /contact-us.html
+
+# Müze turları
+Allow: /museum-tours/
+
+# Assets
+Allow: /assets/
+Allow: /assets/css/
+Allow: /assets/images/
+Allow: /assets/js/
+
+# Yasaklı alanlar
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /config.php
+Disallow: /database.php
+Disallow: /security.php
+Disallow: /tour_manager.php
+Disallow: /install.php
+Disallow: /change-password.php
+Disallow: /logout.php
+
+# Geçici dosyalar
+Disallow: /*.log
+Disallow: /*.tmp
+Disallow: /*.bak
+
+# Sitemap
+Sitemap: https://alizetravel.com/sitemap.xml
+
+# Crawl-delay (isteğe bağlı)
+Crawl-delay: 1
+
+# Özel botlar için kurallar
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Sosyal medya botları
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Kötü niyetli botları engelle
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

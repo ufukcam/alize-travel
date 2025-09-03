@@ -57,7 +57,7 @@ $categories = [
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="/">
                 <div>ALIZE TRAVEL</div>
                 <div class="subtitle">VIP SEYAHATLER</div>
             </a>
@@ -69,13 +69,13 @@ $categories = [
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php">Ana Sayfa</a>
+                        <a class="nav-link active" href="/">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">Hakkımızda</a>
+                        <a class="nav-link" href="hakkimizda">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tours.php">Programlar</a>
+                        <a class="nav-link" href="turlar">Programlar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="services.html">Hizmetlerimiz</a>

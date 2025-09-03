@@ -16,9 +16,9 @@ Fransa ve Paris'te VIP seyahat deneyimleri sunan Alize Travel için geliştirilm
 ```
 alize/
 ├── admin/                          # Admin paneli
-│   ├── index.php                  # Giriş sayfası
+│   ├── /                  # Giriş sayfası
 │   ├── dashboard.php              # Ana dashboard
-│   ├── tours.php                  # Tur yönetimi
+│   ├── turlar                  # Tur yönetimi
 │   ├── logout.php                 # Çıkış
 │   └── assets/                    # Admin CSS/JS
 ├── includes/                       # PHP sınıfları
@@ -32,7 +32,7 @@ alize/
 ├── museum-tours/                   # Müze tur sayfaları
 ├── install.php                     # Kurulum scripti
 ├── index.html                      # Ana sayfa
-├── about-us.html                   # Hakkımızda
+├── hakkimizda                   # Hakkımızda
 ├── services.html                   # Hizmetler
 └── contact-us.html                 # İletişim
 ```

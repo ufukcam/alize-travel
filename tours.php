@@ -37,11 +37,29 @@ $categoryNames = [
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alize Travel - Tüm Turlarımız</title>
+    <title>Paris ve Fransa Turları | Alize Travel - VIP Seyahat Rehberi</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Paris ve Fransa'nın en güzel yerlerini keşfedin. Müze turları, tematik turlar, şato gezileri, Normandiya turları. Dr. Mehmet Kürkçü rehberliğinde unutulmaz deneyimler.">
+    <meta name="keywords" content="Paris turları, Fransa turları, müze turları, Louvre, Orsay, Versailles, şato turları, Normandiya, tematik turlar, özel rehber">
+    <meta name="author" content="Alize Travel">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Turkish">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Paris ve Fransa Turları | Alize Travel">
+    <meta property="og:description" content="Paris ve Fransa'nın en güzel yerlerini keşfedin. Müze turları, tematik turlar, şato gezileri.">
+    <meta property="og:image" content="https://alizetravel.com/assets/images/tours.jpg">
+    <meta property="og:url" content="https://alizetravel.com/turlar/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alize Travel">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alizetravel.com/turlar/">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -127,7 +145,7 @@ $categoryNames = [
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="/">
                 <div>Alize Travel</div>
                 <div class="subtitle">FRANSA & PARİS</div>
             </a>
@@ -139,19 +157,19 @@ $categoryNames = [
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Ana Sayfa</a>
+                        <a class="nav-link" href="/">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">Hakkımızda</a>
+                        <a class="nav-link" href="hakkimizda">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tours.php">Programlar</a>
+                        <a class="nav-link" href="turlar">Programlar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">Hizmetlerimiz</a>
+                        <a class="nav-link" href="hizmetler">Hizmetlerimiz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">İletişim</a>
+                        <a class="nav-link" href="iletisim">İletişim</a>
                     </li>
                 </ul>
             </div>
@@ -267,7 +285,7 @@ $categoryNames = [
                                             
                                             <!-- Button -->
                                             <div class="mt-auto">
-                                                <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" 
+                                                <a href="tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace([' ', 'ç', 'ğ', 'ı', 'ö', 'ş', 'ü'], ['-', 'c', 'g', 'i', 'o', 's', 'u'], $tour['title'])); ?>" 
                                                    class="btn btn-primary-custom w-100">
                                                     <i class="fas fa-info-circle me-2"></i>Detayları Gör
                                                 </a>
@@ -295,7 +313,7 @@ $categoryNames = [
                     <p class="text-white-50">
                         Alize Travel ile Fransa'yı farklı bir şekilde keşfedin. Paris, Lyon, Nice, Cannes, Versailles ve diğer ikonik yerlerde özel deneyimler.
                     </p>
-                    <a href="contact-us.html" class="btn btn-dark-custom">İLETİŞİME GEÇİN</a>
+                    <a href="iletisim" class="btn btn-dark-custom">İLETİŞİME GEÇİN</a>
                 </div>
                 
                 <div class="col-lg-4 mb-4 mb-lg-0">

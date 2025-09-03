@@ -1,58 +1,55 @@
+# Alize Travel - SEO Optimized .htaccess
+# URL Rewriting ve SEO İyileştirmeleri
+
+# Apache mod_rewrite'ı etkinleştir
 RewriteEngine On
 
-# www olmadan gelen istekleri www'lu versiyona yönlendir (isteğe bağlı)
-# RewriteCond %{HTTP_HOST} !^www\. [NC]
-# RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+# HTTPS yönlendirmesi (SSL sertifikası varsa)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# .php uzantısını gizle
+# www olmadan yönlendirme (tercih edilen domain)
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# SEO Dostu URL'ler - Ana Sayfalar (önce özel kurallar)
+RewriteRule ^anasayfa/?$ index.php [L]
+RewriteRule ^hakkimizda/?$ about-us.html [L]
+RewriteRule ^turlar/?$ tours.php [L]
+RewriteRule ^hizmetler/?$ services.html [L]
+RewriteRule ^iletisim/?$ contact-us.html [L]
+
+# SEO Dostu URL'ler - Tur Detayları
+RewriteRule ^tur/([0-9]+)/([^/]+)/?$ tour-detail.php?id=$1 [L]
+
+# SEO Dostu URL'ler - Müze Turları
+RewriteRule ^muzeler/louvre/?$ museum-tours/louvre-tour.html [L]
+RewriteRule ^muzeler/orsay/?$ museum-tours/orsay-tour.html [L]
+RewriteRule ^muzeler/versailles/?$ museum-tours/versailles-tour.html [L]
+RewriteRule ^muzeler/marmottan/?$ museum-tours/marmottan-tour.html [L]
+RewriteRule ^muzeler/orangerie/?$ museum-tours/orangerie-tour.html [L]
+RewriteRule ^muzeler/sainte-chapelle/?$ museum-tours/sainte-chapelle-tour.html [L]
+
+# Kategori bazlı URL'ler
+RewriteRule ^paris-turlari/?$ tours.php?category=museums [L]
+RewriteRule ^tematik-turlar/?$ tours.php?category=thematic [L]
+RewriteRule ^paris-cevresi/?$ tours.php?category=surroundings [L]
+RewriteRule ^fransa-turlari/?$ tours.php?category=france [L]
+RewriteRule ^normandiya-turlari/?$ tours.php?category=normandiya [L]
+
+# Admin paneli koruması
+RewriteRule ^admin/?$ admin/index.php [L]
+
+# Uzantı kaldırma - önce PHP, sonra HTML kontrol et
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
-# Ana sayfa için
-RewriteRule ^$ index.php [L]
-
-# Turlar sayfası için
-RewriteRule ^turlar/?$ tours.php [L]
-
-# Tur detay sayfası için
-RewriteRule ^tur/([0-9]+)/?$ tour-detail.php?id=$1 [L,QSA]
-
-# Admin paneli için
-RewriteRule ^admin/?$ admin/index.php [L]
-RewriteRule ^admin/turlar/?$ admin/tours.php [L]
-RewriteRule ^admin/dashboard/?$ admin/dashboard.php [L]
-
-# Güvenlik ayarları
-# Dizin listelemesini kapat
-Options -Indexes
-
-# PHP dosyalarını direkt görüntülemeyi engelle (güvenlik)
-<Files "*.php">
-    Order Allow,Deny
-    Allow from all
-</Files>
-
-# Config dosyalarını gizle
-<Files "*.config">
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files "config.php">
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-# .htaccess dosyasını gizle
-<Files ".htaccess">
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-# Hata sayfaları
-ErrorDocument 404 /404.html
-ErrorDocument 500 /500.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 # Gzip sıkıştırma
 <IfModule mod_deflate.c>
@@ -65,21 +62,80 @@ ErrorDocument 500 /500.html
     AddOutputFilterByType DEFLATE application/rss+xml
     AddOutputFilterByType DEFLATE application/javascript
     AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
 
-# Browser cache
+# Browser Caching
 <IfModule mod_expires.c>
     ExpiresActive On
-    ExpiresByType image/jpg "access plus 1 month"
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
     ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/pdf "access plus 1 month"
-    ExpiresByType text/javascript "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType application/x-javascript "access plus 1 month"
-    ExpiresByType application/x-shockwave-flash "access plus 1 month"
-    ExpiresByType image/x-icon "access plus 1 year"
-    ExpiresDefault "access plus 2 days"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/html "access plus 1 day"
 </IfModule>
+
+# Cache-Control Headers
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|webp|ico|pdf)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    <FilesMatch "\.(html|htm|php)$">
+        Header set Cache-Control "max-age=86400, public"
+    </FilesMatch>
+</IfModule>
+
+# Güvenlik Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Dosya erişim kısıtlamaları
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "database.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "security.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Hata sayfaları
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# Index dosyalarını gizle
+Options -Indexes
+
+# PHP hata raporlamasını kapat (production için)
+php_flag display_errors Off
+php_flag log_errors On
+
+# Karakter kodlaması
+AddDefaultCharset UTF-8
+
+# MIME Types
+AddType application/javascript .js
+AddType text/css .css
+AddType image/svg+xml .svg
+AddType image/webp .webp
+
+# Hotlink koruması (isteğe bağlı)
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourdomain.com [NC]
+# RewriteRule \.(jpg|jpeg|png|gif|svg|webp)$ - [NC,F,L]

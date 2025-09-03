@@ -188,7 +188,7 @@ $difficulties = ['Kolay', 'Orta', 'Zor'];
                         <a class="nav-link" href="dashboard.php">
                             <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                         </a>
-                        <a class="nav-link active" href="tours.php">
+                        <a class="nav-link active" href="turlar">
                             <i class="fas fa-map-marked-alt me-2"></i>Turlar
                         </a>
                         <a class="nav-link" href="categories.php">
@@ -227,7 +227,7 @@ $difficulties = ['Kolay', 'Orta', 'Zor'];
                                 <i class="fas fa-plus me-2"></i>Yeni Tur Ekle
                             </a>
                         <?php else: ?>
-                            <a href="tours.php" class="btn btn-outline-secondary">
+                            <a href="turlar" class="btn btn-outline-secondary">
                                 <i class="fas fa-arrow-left me-2"></i>Geri Dön
                             </a>
                         <?php endif; ?>
@@ -612,7 +612,7 @@ $difficulties = ['Kolay', 'Orta', 'Zor'];
                                     
                                     <!-- Form Butonları -->
                                     <div class="text-end border-top pt-4">
-                                        <a href="tours.php" class="btn btn-secondary me-2">
+                                        <a href="turlar" class="btn btn-secondary me-2">
                                             <i class="fas fa-times me-2"></i>İptal
                                         </a>
                                         <button type="submit" class="btn btn-primary">

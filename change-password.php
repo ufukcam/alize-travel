@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </button>
                 
                 <div class="text-center">
-                    <a href="admin/index.php" class="text-muted text-decoration-none">
+                    <a href="admin//" class="text-muted text-decoration-none">
                         <i class="fas fa-arrow-left me-1"></i>Admin Paneline Dön
                     </a>
                 </div>

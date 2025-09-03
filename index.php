@@ -26,11 +26,80 @@ try {
 }
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alize Travel - VIP Seyahatler için Fransa ve Paris Rehberi</title>
+    <title>Alize Travel - VIP Seyahatler için Fransa ve Paris Rehberi | Dr. Mehmet Kürkçü</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Alize Travel ile Paris ve Fransa'nın en güzel yerlerini keşfedin. Dr. Mehmet Kürkçü rehberliğinde VIP turlar, müze gezileri, özel şato turları. Türkçe, İngilizce, Fransızca hizmet.">
+    <meta name="keywords" content="Paris turları, Fransa turları, VIP seyahat, müze turları, Louvre, Versailles, Dr. Mehmet Kürkçü, özel rehber, Paris rehberi, Fransa rehberi, sanat tarihi, arkeoloji">
+    <meta name="author" content="Alize Travel">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Turkish">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Alize Travel - VIP Seyahatler için Fransa ve Paris Rehberi">
+    <meta property="og:description" content="Dr. Mehmet Kürkçü rehberliğinde Paris ve Fransa'nın en güzel yerlerini keşfedin. VIP turlar, müze gezileri, özel şato turları.">
+    <meta property="og:image" content="https://alizetravel.com/assets/images/alize-slider.jpg">
+    <meta property="og:url" content="https://alizetravel.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alize Travel">
+    <meta property="og:locale" content="tr_TR">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alize Travel - VIP Seyahatler için Fransa ve Paris Rehberi">
+    <meta name="twitter:description" content="Dr. Mehmet Kürkçü rehberliğinde Paris ve Fransa'nın en güzel yerlerini keşfedin.">
+    <meta name="twitter:image" content="https://alizetravel.com/assets/images/alize-slider.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alizetravel.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Alize Travel",
+        "description": "VIP Seyahatler için Fransa ve Paris Rehberi",
+        "url": "https://alizetravel.com",
+        "logo": "https://alizetravel.com/assets/images/logo.png",
+        "image": "https://alizetravel.com/assets/images/alize-slider.jpg",
+        "telephone": "+33 7 69 91 11 24",
+        "email": "info@alizetravel.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "9 Rue du Lieutenant d'Estienne d'Orves",
+            "addressLocality": "Maisons Alfort",
+            "postalCode": "94700",
+            "addressCountry": "FR"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Dr. Mehmet Kürkçü",
+            "jobTitle": "Professional Tour Guide",
+            "description": "Sanat Tarihi ve Arkeoloji uzmanı, 30+ yıllık deneyimli rehber"
+        },
+        "areaServed": ["Paris", "France"],
+        "serviceType": ["Tour Guide", "VIP Travel", "Museum Tours", "Cultural Tours"],
+        "priceRange": "$$$",
+        "currenciesAccepted": "EUR",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+        "openingHours": "Mo-Su 09:00-18:00",
+        "sameAs": [
+            "https://www.instagram.com/alizetravelparis"
+        ]
+    }
+    </script>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -64,7 +133,7 @@ try {
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="/">
                 <div>Alize Travel</div>
                 <div class="subtitle">FRANSA & PARİS</div>
             </a>
@@ -76,19 +145,19 @@ try {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Ana Sayfa</a>
+                        <a class="nav-link" href="/">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">Hakkımızda</a>
+                        <a class="nav-link" href="hakkimizda">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tours.php">Programlar</a>
+                        <a class="nav-link" href="turlar">Programlar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">Hizmetlerimiz</a>
+                        <a class="nav-link" href="hizmetler">Hizmetlerimiz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">İletişim</a>
+                        <a class="nav-link" href="iletisim">İletişim</a>
                     </li>
                 </ul>
             </div>
@@ -238,7 +307,7 @@ try {
                         Dr. Mehmet Kürkçü, 1989'dan beri turizm sektöründe, 1993'ten itibaren profesyonel rehber olarak çalışmaktadır. Paris-Sorbonne Üniversitesi'nde Sanat Tarihi ve Arkeoloji doktorası yapmış, Akdeniz havzasındaki sayısız arkeolojik alanı yerinde incelemiştir. Bugün tüm Fransa'da geçerli "Guide-Conférencier" belgesine sahip olarak, gezginlere yalnızca bilgiyi değil, kültürün ruhunu da aktarmaktadır.
                     </p>
                     
-                    <a href="about-us.html" class="btn btn-primary-custom">Devamı</a>
+                    <a href="hakkimizda" class="btn btn-primary-custom">Devamı</a>
                 </div>
             </div>
         </div>
@@ -261,7 +330,7 @@ try {
                              alt="Visites">
                         <div class="card-body text-center p-4">
                             <h4 class="serif-font f w-bold">
-                                <a href="tours.php" class="text-decoration-none text-dark">Turlar</a>
+                                <a href="turlar" class="text-decoration-none text-dark">Turlar</a>
                             </h4>
                         </div>
                     </div>
@@ -273,7 +342,7 @@ try {
                              alt="Aktiviteler">
                         <div class="card-body text-center p-4">
                             <h4 class="serif-font fw-bold">
-                                <a href="tours.php" class="text-decoration-none text-dark">Aktiviteler</a>
+                                <a href="turlar" class="text-decoration-none text-dark">Aktiviteler</a>
                             </h4>
                         </div>
                     </div>
@@ -285,7 +354,7 @@ try {
                              alt="Özel Turlar">
                         <div class="card-body text-center p-4">
                             <h4 class="serif-font fw-bold">
-                                <a href="tours.php" class="text-decoration-none text-dark">Özel Turlar</a>
+                                <a href="turlar" class="text-decoration-none text-dark">Özel Turlar</a>
                             </h4>
                         </div>
                     </div>
@@ -293,7 +362,7 @@ try {
             </div>
             
             <div class="text-center mt-5">
-                <a href="services.html" class="btn btn-primary-custom">
+                <a href="hizmetler" class="btn btn-primary-custom">
                     <i class="fas fa-book-open me-2"></i>Tümünü Oku
                 </a>
             </div>
@@ -336,7 +405,7 @@ try {
                                          alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                     <div class="tour-overlay">
                                         <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
-                                        <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                        <a href="tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace([' ', 'ç', 'ğ', 'ı', 'ö', 'ş', 'ü'], ['-', 'c', 'g', 'i', 'o', 's', 'u'], $tour['title'])); ?>" class="tour-link">Daha Fazlası</a>
                                     </div>
                                 </div>
                             </div>
@@ -374,7 +443,7 @@ try {
                                      alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                 <div class="tour-overlay">
                                     <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
-                                    <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                    <a href="tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace([' ', 'ç', 'ğ', 'ı', 'ö', 'ş', 'ü'], ['-', 'c', 'g', 'i', 'o', 's', 'u'], $tour['title'])); ?>" class="tour-link">Daha Fazlası</a>
                                 </div>
                             </div>
                         </div>
@@ -415,7 +484,7 @@ try {
                                          alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                     <div class="tour-overlay">
                                         <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
-                                        <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                        <a href="tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace([' ', 'ç', 'ğ', 'ı', 'ö', 'ş', 'ü'], ['-', 'c', 'g', 'i', 'o', 's', 'u'], $tour['title'])); ?>" class="tour-link">Daha Fazlası</a>
                                     </div>
                                 </div>
                             </div>
@@ -453,7 +522,7 @@ try {
                                      alt="<?php echo htmlspecialchars($tour['title']); ?>" class="tour-image">
                                 <div class="tour-overlay">
                                     <h4 class="tour-title"><?php echo htmlspecialchars($tour['title']); ?></h4>
-                                    <a href="tour-detail.php?id=<?php echo $tour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                                    <a href="tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace([' ', 'ç', 'ğ', 'ı', 'ö', 'ş', 'ü'], ['-', 'c', 'g', 'i', 'o', 's', 'u'], $tour['title'])); ?>" class="tour-link">Daha Fazlası</a>
                                 </div>
                             </div>
                         </div>
@@ -727,7 +796,7 @@ try {
                     <p class="text-white-50">
                         Alize Travel ile Fransa'yı farklı bir şekilde keşfedin. Paris, Lyon, Nice, Cannes, Versailles ve diğer ikonik yerlerde özel deneyimler.
                     </p>
-                    <a href="contact-us.html" class="btn btn-dark-custom">İLETİŞİME GEÇİN</a>
+                    <a href="iletisim" class="btn btn-dark-custom">İLETİŞİME GEÇİN</a>
                 </div>
                 
                 <div class="col-lg-4 mb-4 mb-lg-0">
@@ -792,6 +861,12 @@ try {
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RP8G9FGLL4"></script>
+    
+    <!-- SEO Tracking -->
+    <script src="assets/js/seo-tracking.js"></script>
     
     <!-- Hero Slider Functionality -->
     <script>

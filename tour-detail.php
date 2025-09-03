@@ -57,6 +57,52 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($tour['title']); ?> - Alize Travel | VIP Seyahatler</title>
     
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="<?php echo htmlspecialchars(substr($tour['description'], 0, 160)); ?> - Dr. Mehmet Kürkçü rehberliğinde özel tur deneyimi.">
+    <meta name="keywords" content="<?php echo htmlspecialchars($tour['title']); ?>, Paris turları, Fransa turları, Dr. Mehmet Kürkçü, özel rehber, VIP tur">
+    <meta name="author" content="Alize Travel">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Turkish">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="<?php echo htmlspecialchars($tour['title']); ?> - Alize Travel">
+    <meta property="og:description" content="<?php echo htmlspecialchars(substr($tour['description'], 0, 160)); ?>">
+    <meta property="og:image" content="https://alizetravel.com/assets/images/tours/<?php echo htmlspecialchars($tour['image']); ?>">
+    <meta property="og:url" content="https://alizetravel.com/tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace(' ', '-', $tour['title'])); ?>/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alize Travel">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alizetravel.com/tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace(' ', '-', $tour['title'])); ?>/">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TouristTrip",
+        "name": "<?php echo htmlspecialchars($tour['title']); ?>",
+        "description": "<?php echo htmlspecialchars($tour['description']); ?>",
+        "url": "https://alizetravel.com/tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace(' ', '-', $tour['title'])); ?>/",
+        "image": "https://alizetravel.com/assets/images/tours/<?php echo htmlspecialchars($tour['image']); ?>",
+        "provider": {
+            "@type": "TravelAgency",
+            "name": "Alize Travel",
+            "url": "https://alizetravel.com"
+        },
+        "touristType": "Leisure",
+        "itinerary": {
+            "@type": "ItemList",
+            "name": "<?php echo htmlspecialchars($tour['title']); ?> Tur Programı"
+        },
+        "offers": {
+            "@type": "Offer",
+            "description": "VIP Tur Hizmeti",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+    
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -67,7 +113,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     
     <style>
         .tour-hero {
@@ -175,7 +221,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="/">
                 <div>ALIZE TRAVEL</div>
                 <div class="subtitle">VIP SEYAHATLER</div>
             </a>
@@ -187,19 +233,19 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Ana Sayfa</a>
+                        <a class="nav-link" href="/">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">Hakkımızda</a>
+                        <a class="nav-link" href="hakkimizda">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tours.php">Programlar</a>
+                        <a class="nav-link" href="turlar">Programlar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Hizmetlerimiz</a>
+                        <a class="nav-link" href="hizmetler">Hizmetlerimiz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">İletişim</a>
+                        <a class="nav-link" href="iletisim">İletişim</a>
                     </li>
                 </ul>
             </div>
@@ -235,17 +281,27 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
                     </div>
                     
                     <a href="#booking" class="btn btn-light me-3">Rezervasyon Yap</a>
-                    <a href="contact-us.html" class="btn btn-outline-light">İletişime Geç</a>
+                    <a href="iletisim" class="btn btn-outline-light">İletişime Geç</a>
                 </div>
                 <div class="col-lg-6">
-                    <?php if ($tour['image']): ?>
-                        <img src="assets/images/tours/<?php echo htmlspecialchars($tour['image']); ?>" 
-                             alt="<?php echo htmlspecialchars($tour['title']); ?>" class="img-fluid tour-image">
-                    <?php else: ?>
-                        <div class="tour-image bg-light d-flex align-items-center justify-content-center" style="height: 400px;">
-                            <i class="fas fa-image fa-4x text-muted"></i>
-                        </div>
-                    <?php endif; ?>
+                    <?php 
+                    // Ana tur resmi için dinamik seçim
+                    $mainImagePath = '';
+                    $defaultMainImage = '/assets/images/louvre.jpg';
+                    
+                    if (!empty($tour['image'])) {
+                        $dbMainImagePath = '/assets/images/tours/' . $tour['image'];
+                        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $dbMainImagePath)) {
+                            $mainImagePath = $dbMainImagePath;
+                        } else {
+                            $mainImagePath = $defaultMainImage;
+                        }
+                    } else {
+                        $mainImagePath = $defaultMainImage;
+                    }
+                    ?>
+                    <img src="<?php echo $mainImagePath; ?>" 
+                         alt="<?php echo htmlspecialchars($tour['title']); ?>" class="img-fluid tour-image">
                 </div>
             </div>
         </div>
@@ -463,7 +519,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
                         </div>
                         <?php endif; ?>
 
-                        <a href="contact-us.html" class="btn btn-primary w-100 mb-3">Rezervasyon Yap</a>
+                        <a href="iletisim" class="btn btn-primary w-100 mb-3">Rezervasyon Yap</a>
                         <a href="https://wa.me/33769911124" class="btn btn-success w-100">
                             <i class="fab fa-whatsapp me-2"></i>WhatsApp ile İletişim
                         </a>
@@ -473,26 +529,37 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
         </div>
     </section>
 
+
     <!-- Related Tours -->
     <?php if (!empty($similarTours)): ?>
-    <section class="section-padding bg-light">
+    <section class="section-padding featured-tours">
         <div class="container">
             <h2 class="serif-font display-6 fw-bold mb-5 text-center">Benzer Turlar</h2>
             <div class="row g-4">
                 <?php foreach ($similarTours as $similarTour): ?>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="tour-card">
-                        <?php if ($similarTour['image']): ?>
-                            <img src="assets/images/tours/<?php echo htmlspecialchars($similarTour['image']); ?>" 
-                                 alt="<?php echo htmlspecialchars($similarTour['title']); ?>" class="tour-image">
-                        <?php else: ?>
-                            <div class="tour-image bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                                <i class="fas fa-image fa-2x text-muted"></i>
-                            </div>
-                        <?php endif; ?>
+                        <?php
+                        // Dinamik resim seçimi - index.php'deki gibi
+                        $imagePath = '';
+                        $defaultImage = '/assets/images/louvre.jpg';
+                        
+                        if (!empty($similarTour['image'])) {
+                            $dbImagePath = '/assets/images/tours/' . $similarTour['image'];
+                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $dbImagePath)) {
+                                $imagePath = $dbImagePath;
+                            } else {
+                                $imagePath = $defaultImage;
+                            }
+                        } else {
+                            $imagePath = $defaultImage;
+                        }
+                        ?>
+                        <img src="<?php echo $imagePath; ?>" 
+                             alt="<?php echo htmlspecialchars($similarTour['title']); ?>" class="tour-image">
                         <div class="tour-overlay">
                             <h4 class="tour-title"><?php echo htmlspecialchars($similarTour['title']); ?></h4>
-                            <a href="tour-detail.php?id=<?php echo $similarTour['id']; ?>" class="tour-link">Daha Fazlası</a>
+                            <a href="/tur/<?php echo $similarTour['id']; ?>/<?php echo strtolower(str_replace([' ', 'ç', 'ğ', 'ı', 'ö', 'ş', 'ü'], ['-', 'c', 'g', 'i', 'o', 's', 'u'], $similarTour['title'])); ?>" class="tour-link">Daha Fazlası</a>
                         </div>
                     </div>
                 </div>
@@ -514,7 +581,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
                     <p class="text-white-50">
                         Alize Travel ile Fransa'yı farklı bir şekilde keşfedin. Paris, Lyon, Nice, Cannes, Versailles ve diğer ikonik yerlerde özel deneyimler.
                     </p>
-                    <a href="contact-us.html" class="btn btn-dark-custom">İLETİŞİME GEÇİN</a>
+                    <a href="iletisim" class="btn btn-dark-custom">İLETİŞİME GEÇİN</a>
                 </div>
                 
                 <div class="col-lg-4 mb-4 mb-lg-0">
