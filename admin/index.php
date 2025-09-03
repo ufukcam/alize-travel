@@ -3,7 +3,7 @@ require_once '../includes/config.php';
 
 // Zaten giriş yapılmışsa dashboard'a yönlendir
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header('Location: dashboard.php');
+    header('Location: /admin/dashboard.php');
     exit;
 }
 
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($error)) {
                 unset($_SESSION['login_attempts']);
                 unset($_SESSION['last_attempt']);
                 
-                header('Location: dashboard.php');
+                header('Location: /admin/dashboard.php');
                 exit;
             } else {
                 // Başarısız giriş

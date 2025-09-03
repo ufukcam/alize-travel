@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'title' => $_POST['title'] ?? '',
             'subtitle' => $_POST['subtitle'] ?? '',
             'description' => $_POST['description'] ?? '',
+            'short_description' => $_POST['short_description'] ?? '',
             'category' => $_POST['category'] ?? '',
             'subcategory' => $_POST['subcategory'] ?? '',
             'price' => $_POST['price'] ?? 0,
@@ -386,6 +387,13 @@ $difficulties = ['Kolay', 'Orta', 'Zor'];
                                                 <label for="description" class="form-label">Ana Açıklama</label>
                                                 <textarea class="form-control" id="description" name="description" rows="4"
                                                           placeholder="Tur hakkında detaylı bilgi ve açıklama..."><?php echo $editTour ? htmlspecialchars($editTour['description']) : ''; ?></textarea>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="short_description" class="form-label">Kısa Açıklama</label>
+                                                <textarea class="form-control" id="short_description" name="short_description" rows="2"
+                                                          placeholder="Tur hakkında kısa özet (SEO ve kart görünümü için)..."><?php echo $editTour ? htmlspecialchars($editTour['short_description'] ?? '') : ''; ?></textarea>
+                                                <small class="text-muted">Bu açıklama tur kartlarında ve SEO meta description'da kullanılır (max 160 karakter)</small>
                                             </div>
                                         </div>
                                         

@@ -58,7 +58,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
     <title><?php echo htmlspecialchars($tour['title']); ?> - Alize Travel | VIP Seyahatler</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="<?php echo htmlspecialchars(substr($tour['description'], 0, 160)); ?> - Dr. Mehmet Kürkçü rehberliğinde özel tur deneyimi.">
+    <meta name="description" content="<?php echo htmlspecialchars($tour['short_description'] ?: substr($tour['description'], 0, 160)); ?> - Dr. Mehmet Kürkçü rehberliğinde özel tur deneyimi.">
     <meta name="keywords" content="<?php echo htmlspecialchars($tour['title']); ?>, Paris turları, Fransa turları, Dr. Mehmet Kürkçü, özel rehber, VIP tur">
     <meta name="author" content="Alize Travel">
     <meta name="robots" content="index, follow">
@@ -66,7 +66,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="<?php echo htmlspecialchars($tour['title']); ?> - Alize Travel">
-    <meta property="og:description" content="<?php echo htmlspecialchars(substr($tour['description'], 0, 160)); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($tour['short_description'] ?: substr($tour['description'], 0, 160)); ?>">
     <meta property="og:image" content="https://alizetravel.com/assets/images/tours/<?php echo htmlspecialchars($tour['image']); ?>">
     <meta property="og:url" content="https://alizetravel.com/tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace(' ', '-', $tour['title'])); ?>/">
     <meta property="og:type" content="website">
@@ -81,7 +81,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
         "@context": "https://schema.org",
         "@type": "TouristTrip",
         "name": "<?php echo htmlspecialchars($tour['title']); ?>",
-        "description": "<?php echo htmlspecialchars($tour['description']); ?>",
+        "description": "<?php echo htmlspecialchars($tour['short_description'] ?: $tour['description']); ?>",
         "url": "https://alizetravel.com/tur/<?php echo $tour['id']; ?>/<?php echo strtolower(str_replace(' ', '-', $tour['title'])); ?>/",
         "image": "https://alizetravel.com/assets/images/tours/<?php echo htmlspecialchars($tour['image']); ?>",
         "provider": {
@@ -261,7 +261,7 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
                     <?php if ($tour['subtitle']): ?>
                         <h2 class="h4 text-white-50 mb-3"><?php echo htmlspecialchars($tour['subtitle']); ?></h2>
                     <?php endif; ?>
-                    <p class="lead mb-4"><?php echo htmlspecialchars($tour['description']); ?></p>
+                    <p class="lead mb-4"><?php echo htmlspecialchars($tour['short_description']); ?></p>
                     
                     <div class="tour-meta">
                         <?php if ($tour['duration']): ?>

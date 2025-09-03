@@ -61,13 +61,14 @@ class TourManager {
     
     // Tur ekle
     public function addTour($data) {
-        $sql = "INSERT INTO tours (title, subtitle, description, category, subcategory, image, price, duration, difficulty, group_size, highlights, included_services, tour_options, ideal_for, guide_name, guide_expertise, rating, sort_order, is_active) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO tours (title, subtitle, description, short_description, category, subcategory, image, price, duration, difficulty, group_size, highlights, included_services, tour_options, ideal_for, guide_name, guide_expertise, rating, sort_order, is_active) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         $params = [
             $data['title'],
             $data['subtitle'] ?? '',
             $data['description'],
+            $data['short_description'] ?? '',
             $data['category'],
             $data['subcategory'],
             $data['image'],
@@ -92,7 +93,7 @@ class TourManager {
     // Tur güncelle
     public function updateTour($id, $data) {
         $sql = "UPDATE tours SET 
-                title = ?, subtitle = ?, description = ?, category = ?, subcategory = ?, 
+                title = ?, subtitle = ?, description = ?, short_description = ?, category = ?, subcategory = ?, 
                 image = ?, price = ?, duration = ?, difficulty = ?, group_size = ?, 
                 highlights = ?, included_services = ?, tour_options = ?, ideal_for = ?, 
                 guide_name = ?, guide_expertise = ?, rating = ?, sort_order = ?, 
@@ -103,6 +104,7 @@ class TourManager {
             $data['title'],
             $data['subtitle'] ?? '',
             $data['description'],
+            $data['short_description'] ?? '',
             $data['category'],
             $data['subcategory'],
             $data['image'],

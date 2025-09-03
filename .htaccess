@@ -4,6 +4,10 @@
 # Apache mod_rewrite'ı etkinleştir
 RewriteEngine On
 
+# Admin dizini için rewrite'ı devre dışı bırak
+RewriteCond %{REQUEST_URI} ^/admin/
+RewriteRule ^(.*)$ - [L]
+
 # HTTPS yönlendirmesi (SSL sertifikası varsa)
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
