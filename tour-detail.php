@@ -233,19 +233,19 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Ana Sayfa</a>
+                        <a class="nav-link" href="https://alizetravel.com/">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="hakkimizda">Hakkımızda</a>
+                        <a class="nav-link" href="https://alizetravel.com/hakkimizda">Hakkımızda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="turlar">Programlar</a>
+                        <a class="nav-link" href="https://alizetravel.com/turlar">Programlar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="hizmetler">Hizmetlerimiz</a>
+                        <a class="nav-link" href="https://alizetravel.com/hizmetler">Hizmetlerimiz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="iletisim">İletişim</a>
+                        <a class="nav-link" href="https://alizetravel.com/iletisim">İletişim</a>
                     </li>
                 </ul>
             </div>
@@ -377,7 +377,10 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
                                         <i class="fas fa-user-graduate fa-2x text-primary"></i>
                                     </div>
                                     <h5 class="fw-bold">Uzman Rehber Eşliğinde</h5>
-                                    <p class="text-muted"><?php echo htmlspecialchars($tour['guide_expertise']); ?> uzmanlığında, deneyimli bir rehber ile turun en önemli noktalarını keşfedin.</p>
+                                  <!--  <p class="text-muted">
+                                    <?php echo htmlspecialchars($tour['guide_expertise']); ?> uzmanlığında, deneyimli bir rehber ile turun en önemli noktalarını keşfedin.</p> -->
+                                    <p class="text-muted">Sanat Tarihçisi, konunun uzmanı, deneyimli ve Fransa'dan "guide - conferencier belgesine sahip rehber ile"</p>
+
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
@@ -516,6 +519,15 @@ $similarTours = array_slice($similarTours, 0, 4); // En fazla 4 benzer tur
                                 endforeach; 
                                 ?>
                             </ul>
+                        </div>
+                        <?php endif; ?>
+
+                        <?php if (!empty($tour['tour_file'])): ?>
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-3">Tur Dokümanı:</h6>
+                            <a href="/assets/images/files/<?php echo htmlspecialchars($tour['tour_file']); ?>" target="_blank" rel="noopener nofollow" class="btn btn-outline-secondary w-100">
+                                <i class="fas fa-file-download me-2"></i>Dokümanı Görüntüle / İndir
+                            </a>
                         </div>
                         <?php endif; ?>
 

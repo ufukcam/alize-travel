@@ -6,12 +6,26 @@ define('DB_USER', 'alizetravel_user');
 define('DB_PASS', 'xVxYR528W85v');
 
 // Site ayarları
-define('SITE_URL', 'http://localhost/alize');
+define('SITE_URL', 'http://alizetravel.com/');
 define('ADMIN_URL', SITE_URL . '/admin');
 
 // Upload yolları - BASİT VE KESİN
 define('UPLOAD_PATH', __DIR__ . '/../assets/images/tours/');
 define('UPLOAD_URL', SITE_URL . '/assets/images/tours/');
+
+// Tur dosyaları (PDF vb.) için upload yolları
+define('FILE_UPLOAD_PATH', __DIR__ . '/../assets/images/files/');
+define('FILE_UPLOAD_URL', SITE_URL . '/assets/images/files/');
+
+// SMTP ayarları (SMTP ile e-posta gönderimi için)
+// Doldurun: örn. smtp.gmail.com, 587, tls
+define('SMTP_HOST', getenv('SMTP_HOST') ?: 'mail.alizetravel.com');
+define('SMTP_PORT', getenv('SMTP_PORT') ?: 587);
+define('SMTP_USER', getenv('SMTP_USER') ?: 'no-reply@alizetravel.com');
+define('SMTP_PASS', getenv('SMTP_PASS') ?: '%]OBtSXk=&_;FZfJ');
+define('SMTP_SECURE', getenv('SMTP_SECURE') ?: 'tls'); // tls | ssl | none
+define('SMTP_FROM_EMAIL', getenv('SMTP_FROM_EMAIL') ?: 'no-reply@alizetravel.com');
+define('SMTP_FROM_NAME', getenv('SMTP_FROM_NAME') ?: 'Alize Travel');
 
 // Güvenlik ayarları - BASİT ŞİFRE SİSTEMİ
 define('ADMIN_USERNAME', 'admin');

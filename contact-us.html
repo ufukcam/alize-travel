@@ -165,9 +165,10 @@
                                 <textarea class="form-control" id="message" name="message" rows="5" placeholder="Seyahat planlarınız, özel istekleriniz veya sorularınız hakkında bize bilgi verin..." required></textarea>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary-custom">
+                            <button type="submit" class="btn btn-primary-custom" id="submitBtn">
                                 <i class="fas fa-paper-plane me-2"></i>Mesaj Gönder
                             </button>
+                            <div class="mt-3" id="formStatus" style="display:none;"></div>
                         </form>
                     </div>
                 </div>
@@ -414,32 +415,59 @@
     
     <!-- Contact Form JavaScript -->
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Form validation
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
+            const form = this;
+            const submitBtn = document.getElementById('submitBtn');
+            const statusBox = document.getElementById('formStatus');
+
+            // Basic validation
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
             if (!firstName || !lastName || !email || !message) {
-                alert('Lütfen tüm gerekli alanları doldurun.');
+                statusBox.style.display = 'block';
+                statusBox.className = 'alert alert-danger';
+                statusBox.textContent = 'Lütfen gerekli alanları doldurun.';
                 return;
             }
-            
-            // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                alert('Lütfen geçerli bir email adresi girin.');
+                statusBox.style.display = 'block';
+                statusBox.className = 'alert alert-danger';
+                statusBox.textContent = 'Lütfen geçerli bir email adresi girin.';
                 return;
             }
-            
-            // Success message
-            alert('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
-            
-            // Reset form
-            this.reset();
+
+            // Submit
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Gönderiliyor...';
+            statusBox.style.display = 'none';
+
+            try {
+                const formData = new FormData(form);
+                const res = await fetch('/server/send-contact.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                if (res.ok && data.ok) {
+                    statusBox.style.display = 'block';
+                    statusBox.className = 'alert alert-success';
+                    statusBox.textContent = 'Mesajınız gönderildi. Teşekkürler!';
+                    form.reset();
+                } else {
+                    throw new Error(data.message || 'Bir hata oluştu');
+                }
+            } catch (err) {
+                statusBox.style.display = 'block';
+                statusBox.className = 'alert alert-danger';
+                statusBox.textContent = err.message;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Mesaj Gönder';
+            }
         });
     </script>
 </body>

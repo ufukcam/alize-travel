@@ -61,8 +61,8 @@ class TourManager {
     
     // Tur ekle
     public function addTour($data) {
-        $sql = "INSERT INTO tours (title, subtitle, description, short_description, category, subcategory, image, price, duration, difficulty, group_size, highlights, included_services, tour_options, ideal_for, guide_name, guide_expertise, rating, sort_order, is_active) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO tours (title, subtitle, description, short_description, category, subcategory, image, tour_file, price, duration, difficulty, group_size, highlights, included_services, tour_options, ideal_for, guide_name, guide_expertise, rating, sort_order, is_active) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         $params = [
             $data['title'],
@@ -72,6 +72,7 @@ class TourManager {
             $data['category'],
             $data['subcategory'],
             $data['image'],
+            $data['tour_file'] ?? '',
             $data['price'],
             $data['duration'],
             $data['difficulty'],
@@ -94,7 +95,7 @@ class TourManager {
     public function updateTour($id, $data) {
         $sql = "UPDATE tours SET 
                 title = ?, subtitle = ?, description = ?, short_description = ?, category = ?, subcategory = ?, 
-                image = ?, price = ?, duration = ?, difficulty = ?, group_size = ?, 
+                image = ?, tour_file = ?, price = ?, duration = ?, difficulty = ?, group_size = ?, 
                 highlights = ?, included_services = ?, tour_options = ?, ideal_for = ?, 
                 guide_name = ?, guide_expertise = ?, rating = ?, sort_order = ?, 
                 is_active = ?, updated_at = CURRENT_TIMESTAMP 
@@ -108,6 +109,7 @@ class TourManager {
             $data['category'],
             $data['subcategory'],
             $data['image'],
+            $data['tour_file'] ?? '',
             $data['price'],
             $data['duration'],
             $data['difficulty'],
@@ -184,6 +186,36 @@ class TourManager {
             return $new_filename;
         } else {
             throw new Exception('Dosya yüklenirken hata oluştu.');
+        }
+    }
+
+    // Tur dosyası yükleme (PDF, DOCX vb.)
+    public function uploadFile($file) {
+        $target_dir = FILE_UPLOAD_PATH;
+        $file_extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        $new_filename = uniqid() . '.' . $file_extension;
+        $target_file = $target_dir . $new_filename;
+
+        // Klasör yoksa oluştur
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0755, true);
+        }
+
+        // Dosya türü kontrolü
+        $allowed_types = ['pdf', 'doc', 'docx'];
+        if (!in_array($file_extension, $allowed_types)) {
+            throw new Exception('Sadece PDF veya DOC/DOCX dosyaları yüklenebilir.');
+        }
+
+        // Dosya boyutu kontrolü (10MB)
+        if ($file['size'] > 10 * 1024 * 1024) {
+            throw new Exception('Dosya boyutu 10MB\'dan büyük olamaz.');
+        }
+
+        if (move_uploaded_file($file['tmp_name'], $target_file)) {
+            return $new_filename;
+        } else {
+            throw new Exception('Tur dosyası yüklenirken hata oluştu.');
         }
     }
 }

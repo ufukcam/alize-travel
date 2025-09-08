@@ -39,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'rating' => $_POST['rating'] ?? 5.0,
             'sort_order' => $_POST['sort_order'] ?? 0,
             'is_active' => $_POST['is_active'] ?? 1,
-            'image' => ''
+            'image' => '',
+            'tour_file' => ''
         ];
         
         // Resim yükleme
@@ -47,6 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tourData['image'] = $tourManager->uploadImage($_FILES['image']);
         } elseif (isset($_POST['current_image'])) {
             $tourData['image'] = $_POST['current_image'];
+        }
+
+        // Tur dosyası yükleme (PDF/DOC/DOCX)
+        if (isset($_FILES['tour_file']) && $_FILES['tour_file']['error'] === UPLOAD_ERR_OK) {
+            $tourData['tour_file'] = $tourManager->uploadFile($_FILES['tour_file']);
+        } elseif (isset($_POST['current_tour_file'])) {
+            $tourData['tour_file'] = $_POST['current_tour_file'];
         }
         
         if (isset($_POST['tour_id']) && !empty($_POST['tour_id'])) {
@@ -261,6 +269,7 @@ $difficulties = ['Kolay', 'Orta', 'Zor'];
                                                     <th>Başlık</th>
                                                     <th>Alt Başlık</th>
                                                     <th>Kategori</th>
+                                                    <th>Dosya</th>
                                                     <th>Fiyat</th>
                                                     <th>Süre</th>
                                                     <th>Puan</th>
@@ -297,6 +306,13 @@ $difficulties = ['Kolay', 'Orta', 'Zor'];
                                                         </td>
                                                         <td>
                                                             <span class="badge bg-primary"><?php echo htmlspecialchars($categories[$tour['category']] ?? $tour['category']); ?></span>
+                                                        </td>
+                                                        <td>
+                                                            <?php if (!empty($tour['tour_file'])): ?>
+                                                                <a href="<?php echo FILE_UPLOAD_URL . htmlspecialchars($tour['tour_file']); ?>" target="_blank" class="btn btn-sm btn-outline-secondary">Görüntüle</a>
+                                                            <?php else: ?>
+                                                                <span class="text-muted">-</span>
+                                                            <?php endif; ?>
                                                         </td>
                                                         <td>
                                                             <?php if ($tour['price']): ?>
@@ -410,6 +426,20 @@ $difficulties = ['Kolay', 'Orta', 'Zor'];
                                                 <input type="file" class="form-control" id="image" name="image" 
                                                        accept="image/*" <?php echo !$editTour ? 'required' : ''; ?>>
                                                 <small class="text-muted">JPG, PNG, GIF (max 5MB)</small>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="tour_file" class="form-label">Tur Dosyası (PDF/DOC/DOCX)</label>
+                                                <?php if ($editTour && !empty($editTour['tour_file'])): ?>
+                                                    <div class="mb-2">
+                                                        <a href="<?php echo FILE_UPLOAD_URL . htmlspecialchars($editTour['tour_file']); ?>" target="_blank" class="btn btn-sm btn-outline-secondary">
+                                                            Mevcut Dosyayı Görüntüle
+                                                        </a>
+                                                    </div>
+                                                    <input type="hidden" name="current_tour_file" value="<?php echo htmlspecialchars($editTour['tour_file']); ?>">
+                                                <?php endif; ?>
+                                                <input type="file" class="form-control" id="tour_file" name="tour_file" accept=".pdf,.doc,.docx">
+                                                <small class="text-muted">Maksimum 10MB</small>
                                             </div>
                                         </div>
                                     </div>
