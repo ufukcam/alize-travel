@@ -177,7 +177,7 @@ try {
                                 <div class="title-line-2">Fransa ve Paris Rehberi</div>
                             </div>
                             <p class="lead mb-5">Paris ve Fransa'nın zarafetini, sanatını ve lüksünü keşfetmek için</p>
-                            <a href="#contact" class="mb-3 btn btn-primary-custom">İLETİŞİME GEÇİN</a>
+                            <a href="https://alizetravel.com/iletisim" class="mb-3 btn btn-primary-custom">İLETİŞİME GEÇİN</a>
                         </div>
                     </div>
                 </div>
@@ -195,7 +195,7 @@ try {
                                 <div class="title-line-2">Paris'in Gizli Hazineleri</div>
                             </div>
                             <p class="lead mb-5">Eiffel Kulesi'nden Champs-Élysées'e, Paris'in en özel mekanlarını keşfedin</p>
-                            <a href="#services" class="btn btn-primary-custom">HİZMETLERİMİZİ GÖRÜN</a>
+                            <a href="https://alizetravel.com/hizmetler" class="btn btn-primary-custom">HİZMETLERİMİZİ GÖRÜN</a>
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@ try {
                                 <div class="title-line-2">Versailles ve Şatolar</div>
                             </div>
                             <p class="lead mb-5">Fransa'nın en muhteşem şatolarında unutulmaz deneyimler yaşayın</p>
-                            <a href="#about" class="btn btn-primary-custom">HAKKIMIZDA</a>
+                            <a href="https://alizetravel.com/hakkimizda" class="btn btn-primary-custom">HAKKIMIZDA</a>
                         </div>
                     </div>
                 </div>

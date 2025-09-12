@@ -21,10 +21,14 @@ RewriteRule ^anasayfa/?$ index.php [L]
 RewriteRule ^hakkimizda/?$ about-us.html [L]
 RewriteRule ^turlar/?$ tours.php [L]
 RewriteRule ^hizmetler/?$ services.html [L]
+RewriteRule ^blog/?$ blog.php [L]
 RewriteRule ^iletisim/?$ contact-us.html [L]
 
 # SEO Dostu URL'ler - Tur Detayları
 RewriteRule ^tur/([0-9]+)/([^/]+)/?$ tour-detail.php?id=$1 [L]
+
+# SEO Dostu URL'ler - Blog
+RewriteRule ^blog/([^/]+)/?$ blog-detail.php?slug=$1 [L]
 
 # SEO Dostu URL'ler - Müze Turları
 RewriteRule ^muzeler/louvre/?$ museum-tours/louvre-tour.html [L]
