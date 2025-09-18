@@ -117,6 +117,9 @@ $totalCategories = count(array_unique(array_column($tourManager->getAllTours(), 
                         <a class="nav-link" href="categories.php">
                             <i class="fas fa-tags me-2"></i>Kategoriler
                         </a>
+                        <a class="nav-link" href="blog.php">
+                            <i class="fas fa-tags me-2"></i>Blog
+                        </a>
                         <a class="nav-link active" href="settings.php">
                             <i class="fas fa-cog me-2"></i>Ayarlar
                         </a>

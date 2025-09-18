@@ -139,6 +139,9 @@ foreach ($categories as $key => $category) {
                         <a class="nav-link active" href="categories.php">
                             <i class="fas fa-tags me-2"></i>Kategoriler
                         </a>
+                        <a class="nav-link" href="blog.php">
+                            <i class="fas fa-tags me-2"></i>Blog
+                        </a>
                         <a class="nav-link" href="settings.php">
                             <i class="fas fa-cog me-2"></i>Ayarlar
                         </a>
